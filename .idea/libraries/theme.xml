@@ -1,0 +1,9 @@
+<component name="libraryTable">
+  <library name="theme">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/RedBack-dashboard-pro-theme-free-v1.2.1/theme.zip!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>
