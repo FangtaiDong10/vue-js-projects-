@@ -22,23 +22,46 @@
 </template>
 
 <script setup>
-import { ref, reactive, computed, watch } from "vue";
+/*
+  imports
+*/
+import {
+  ref,
+  reactive,
+  computed,
+  watch,
+  onBeforeUpdate,
+  onUpdated,
+  onMounted,
+} from "vue";
 
+/**
+ * app title
+ */
 const appTitle = "My Amazing Counte App OK";
+
+onMounted(() => {
+  console.log("Do stuff to App Title");
+});
+
+/**
+ * counter
+ */
 
 const counterData = reactive({
   count: 0,
   title: "My Counter",
 });
 
-const count = ref();
-
-watch(() => counterData.count, (newCount, oldCount) => {
-  // console.log('newCount', newCount);
-  if (newCount === 20) {
-    alert('Way to go! You made it to 20!!')
+watch(
+  () => counterData.count,
+  (newCount, oldCount) => {
+    // console.log('newCount', newCount);
+    if (newCount === 20) {
+      alert("Way to go! You made it to 20!!");
+    }
   }
-});
+);
 
 // computed property
 const oddOrEven = computed(() => {
@@ -54,6 +77,10 @@ const increaseCounter = (amount, e) => {
 const decreaseCounter = (amount) => {
   counterData.count -= amount;
 };
+
+onMounted(() => {
+  console.log("Do stuff related to Counter");
+});
 </script>
 
 <style>
