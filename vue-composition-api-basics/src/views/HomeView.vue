@@ -16,7 +16,7 @@
 
     <div class="edit">
       <h4>Edit counter title:</h4>
-      <input v-model="counterData.title" type="text" />
+      <input v-model="counterData.title" type="text" v-autofocus />
     </div>
   </div>
 </template>
@@ -34,6 +34,7 @@ import {
   onUpdated,
   onMounted,
 } from "vue";
+import {vAutofocus} from '@/directives/vAutofocus'
 
 /**
  * app title
