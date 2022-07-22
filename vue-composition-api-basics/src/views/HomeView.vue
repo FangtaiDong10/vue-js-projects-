@@ -33,6 +33,7 @@ import {
   onBeforeUpdate,
   onUpdated,
   onMounted,
+  nextTick,
 } from "vue";
 import { vAutofocus } from "@/directives/vAutofocus";
 
@@ -50,12 +51,9 @@ onMounted(() => {
  */
 const appTitleRef = ref(null);
 
-onMounted(()=> {
+onMounted(() => {
   console.log(`The app title is ${appTitleRef.value.offsetWidth} px wide`);
-  
-})
-
-
+});
 
 /**
  * counter
@@ -82,10 +80,11 @@ const oddOrEven = computed(() => {
   return "odd";
 });
 
-const increaseCounter = (amount, e) => {
-  console.log(e);
-
+const increaseCounter = async (amount, e) => {
   counterData.count += amount;
+  await nextTick();
+
+  console.log("do something when counter has updated in the DOM! ");
 };
 const decreaseCounter = (amount) => {
   counterData.count -= amount;
