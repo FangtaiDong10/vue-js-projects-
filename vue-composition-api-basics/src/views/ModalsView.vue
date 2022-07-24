@@ -2,20 +2,15 @@
   <div class="modals">
     <h1>Modals</h1>
     <button @click="showModal = true">Show modal</button>
-
-    <teleport to=".modals-container">
-      <div v-if="showModal" class="modal">
-        <h1>This is a modal</h1>
-        <p>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Ab
-          asperiores, sapiente ut harum adipisci corrupti cupiditate distinctio
-          impedit a sint placeat minima accusamus maiores eum similique
-          voluptate illum saepe odio.
-        </p>
-        <button @click="showModal = false">Hide modal</button>
-      </div>
-    </teleport>
-
+    <Modal v-if="showModal">
+      <template #title>My new title</template>
+      <p>
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolore
+        exercitationem magnam deserunt sed sunt neque ipsum, inventore possimus
+        consectetur obcaecati voluptatibus voluptatem cupiditate praesentium
+        beatae harum id debitis labore veniam!
+      </p>
+    </Modal>
   </div>
 </template>
 
@@ -24,22 +19,10 @@
  * imports
  */
 import { ref } from "vue";
+import Modal from "@/components/Modal.vue";
 
 /**
  * modals
  */
 const showModal = ref(false);
 </script>
-
-<style>
-.modal {
-  background: darkgreen;
-  padding: 10px;
-  position: absolute;
-  left: 0;
-  top: 0;
-  width: 100%;
-  height: 100%;
-  z-index: 1;
-}
-</style>
