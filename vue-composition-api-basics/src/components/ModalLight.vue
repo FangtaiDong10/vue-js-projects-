@@ -1,15 +1,18 @@
 <template>
   <teleport to=".modals-container">
-    <div class="modal" v-if="modelValue">
+    <div class="modal-light" v-if="modelValue">
       <h1>{{ title }}</h1>
       <slot />
       <!-- <pre>{{ $slots.title() }}</pre> -->
       <button @click="$emit('update:modelValue', false)">Hide modal</button>
+      <div>Username is : {{ userData.username }}</div>
     </div>
   </teleport>
 </template>
 
 <script setup>
+import { inject } from "vue";
+
 // import { useSlots } from 'vue';
 
 // const slots = useSlots()
@@ -38,11 +41,14 @@ const emit = defineEmits(["update:modelValue"]);
 // const handleButtonClick = () => {
 //   emit("update:modelValue", false);
 // };
+
+const userData = inject("user-data");
 </script>
 
 <style>
-.modal {
-  background: darkgreen;
+.modal-light {
+  background: white;
+  color: black;
   padding: 10px;
   position: absolute;
   left: 0;
