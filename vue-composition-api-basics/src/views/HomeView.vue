@@ -25,9 +25,12 @@
 /*
   imports
 */
-import { ref,onMounted } from "vue";
+import { ref, onMounted } from "vue";
 import { useCounter } from "@/use/useCounter";
 import { vAutofocus } from "@/directives/vAutofocus";
+
+// import Pinia from stores
+import { useCounterStore } from "@/stores/counter";
 
 /**
  * app title
@@ -52,6 +55,8 @@ onMounted(() => {
  */
 const { counterData, oddOrEven, increaseCounter, decreaseCounter } =
   useCounter();
+
+const counter = useCounterStore();
 </script>
 
 <style>

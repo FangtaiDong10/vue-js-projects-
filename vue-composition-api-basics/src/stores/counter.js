@@ -1,16 +1,25 @@
-import { defineStore } from 'pinia'
+import { defineStore } from "pinia";
 
 export const useCounterStore = defineStore({
-  id: 'counter',
+  id: "counter",
   state: () => ({
-    counter: 0
+    count: 0,
+    title: "My Counter Title",
   }),
+
   getters: {
-    doubleCount: (state) => state.counter * 2
+    oddOrEvent: (state) => {
+      if (state.count % 2 === 0) return "even";
+      return "odd";
+    },
   },
+
   actions: {
-    increment() {
-      this.counter++
-    }
-  }
-})
+    increment(amount) {
+      this.count += amount;
+    },
+    decrease(amount) {
+      this.count -= amount;
+    },
+  },
+});
