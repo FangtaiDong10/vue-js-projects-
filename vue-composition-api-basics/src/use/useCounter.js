@@ -9,15 +9,18 @@ import {
   nextTick,
 } from "vue";
 
+// global constant
+const counterData = reactive({
+  count: 0,
+  title: "My Counter",
+});
+
+
 export function useCounter() {
   /**
    * counter
    */
 
-  const counterData = reactive({
-    count: 0,
-    title: "My Counter",
-  });
 
   watch(
     () => counterData.count,
