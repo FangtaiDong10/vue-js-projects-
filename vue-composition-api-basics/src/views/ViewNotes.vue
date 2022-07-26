@@ -24,23 +24,19 @@
         </div>
       </div>
 
-
       <Note
         v-for="note in notes"
-        :key="note.id" 
+        :key="note.id"
         :note="note"
-        />
-
+        @deleteClicked="deleteNote"
+      />
     </div>
-
-    
   </div>
 </template>
 
 <script setup>
 import { ref } from "vue";
-import Note from "@/components/Notes/Note.vue"
-
+import Note from "@/components/Notes/Note.vue";
 
 /**
  * notes
@@ -75,5 +71,14 @@ const addNote = () => {
   notes.value.unshift(note);
   newNote.value = "";
   newNoteRef.value.focus();
+};
+
+/**
+ * delete note
+ */
+const deleteNote = (idToDelete) => {
+  notes.value = notes.value.filter((note) => {
+    return note.id !== idToDelete;
+  });
 };
 </script>
