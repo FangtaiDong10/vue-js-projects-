@@ -1,16 +1,16 @@
 <template>
+  <NavBar />
 
-  <nav>
-    <router-link to="/">Notes</router-link> |
-    <router-link to="/stats">Stats</router-link>
-  </nav>
-
-  <router-view />
+  <div class="container is-max-desktop px-2 py-4">
+    <router-view />
+  </div>
 </template>
 
 <script setup>
 import { reactive, provide } from "vue";
 import { useOnline } from "@vueuse/core";
+
+import NavBar from "@/components/Layout/NavBar.vue";
 
 /**
  * user data
@@ -28,48 +28,6 @@ provide("user-data", userData);
 const online = useOnline();
 </script>
 
-<style scoped>
-header {
-  line-height: 1.5;
-  max-height: 100vh;
-}
-
-.logo {
-  display: block;
-  margin: 0 auto 2rem;
-}
-
-nav {
-  width: 100%;
-  font-size: 12px;
-  text-align: center;
-  margin-top: 2rem;
-}
-
-nav a.router-link-exact-active {
-  color: var(--color-text);
-}
-
-nav a.router-link-exact-active:hover {
-  background-color: transparent;
-}
-
-nav a {
-  display: inline-block;
-  padding: 0 1rem;
-  border-left: 1px solid var(--color-border);
-}
-
-nav a:first-of-type {
-  border: 0;
-}
-
-.user-data {
-  position: absolute;
-  background: blue;
-  top: 0;
-  right: 0;
-  font-size: 12px;
-  padding: 5px;
-}
+<style>
+@import "bulma\css\bulma.min.css";
 </style>
