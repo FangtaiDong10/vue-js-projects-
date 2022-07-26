@@ -3,7 +3,7 @@ import {
   createWebHashHistory,
   createWebHistory,
 } from "vue-router";
-import ViewNotes from "@/views/viewNotes.vue";
+import ViewNotes from "@/views/ViewNotes.vue";
 import ViewStats from "@/views/ViewStats.vue";
 
 const routes = [
