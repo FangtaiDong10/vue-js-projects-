@@ -1,30 +1,27 @@
-import { createRouter, createWebHistory } from "vue-router";
-import HomeView from "../views/HomeView.vue";
+import {
+  createRouter,
+  createWebHashHistory,
+  createWebHistory,
+} from "vue-router";
+import ViewNotes from "@/views/viewNotes.vue";
+import ViewStats from "@/views/ViewStats.vue";
+
+const routes = [
+  {
+    path: "/",
+    name: "notes",
+    component: ViewNotes,
+  },
+  {
+    path: "/stats",
+    name: "stats",
+    component: ViewStats,
+  },
+];
 
 const router = createRouter({
-  history: createWebHistory(import.meta.env.BASE_URL),
-  routes: [
-    {
-      path: "/",
-      name: "home",
-      component: HomeView,
-    },
-    {
-      path: "/posts",
-      name: "posts",
-      component: () => import("../views/PostsView.vue"),
-    },
-    {
-      path: "/modals",
-      name: "modals",
-      component: () => import("../views/ModalsView.vue"),
-    },
-    {
-      path: "/postDetail/:id",
-      name: "postDetail",
-      component: () => import("../views/PostDetailView.vue"),
-    },
-  ],
+  history: createWebHashHistory(),
+  routes
 });
 
-export default router;
+export default router

@@ -1,19 +1,11 @@
 <template>
-  <div class="user-data">
-    {{ userData.name }} @ {{ userData.username }}
-    || Network Status:
-    <span :style="{ color: online ? 'yellow' : 'red' }">
-      {{ online ? "Online" : "Offline" }}
-    </span>
-  </div>
 
   <nav>
-    <RouterLink to="/">Home</RouterLink>
-    <RouterLink to="/modals">Modals</RouterLink>
-    <RouterLink to="/posts">Posts</RouterLink>
+    <router-link to="/">Notes</router-link> |
+    <router-link to="/stats">Stats</router-link>
   </nav>
 
-  <RouterView />
+  <router-view />
 </template>
 
 <script setup>
