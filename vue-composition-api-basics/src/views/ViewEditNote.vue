@@ -22,11 +22,25 @@
   </div>
 </template>
 <script setup>
-import AddEditNote from "@/components/Notes/AddEditNote.vue";
 import { ref } from "vue";
+import { useRoute } from "vue-router";
+import AddEditNote from "@/components/Notes/AddEditNote.vue";
+import { useStoreNotes } from "@/stores/storeNotes";
+
+/**
+ * router
+ */
+const route = useRoute();
+
+/**
+ * store
+ */
+const storeNotes = useStoreNotes();
 
 /**
  * note
  */
 const noteContent = ref("");
+
+noteContent.value = storeNotes.getNoteContent(route.params.id);
 </script>
