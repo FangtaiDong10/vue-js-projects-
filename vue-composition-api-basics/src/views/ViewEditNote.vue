@@ -8,10 +8,11 @@
       ref="addEditNoteRef"
     >
       <template v-slot:buttons>
-        <button @click="$router.push('/')" class="button is-link is-light">
+        <button @click="$router.push('/')" class="button is-link is-light mr-2">
           Cancel
         </button>
         <button
+          @click="handleSaveClicked"
           class="button is-link has-background-link"
           :disabled="!noteContent"
         >
@@ -43,4 +44,11 @@ const storeNotes = useStoreNotes();
 const noteContent = ref("");
 
 noteContent.value = storeNotes.getNoteContent(route.params.id);
+
+/**
+ * save clicked
+ */
+const handleSaveClicked = () => {
+  storeNotes.updateNote(route.params.id, noteContent.value);
+};
 </script>

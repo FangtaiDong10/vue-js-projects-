@@ -33,6 +33,11 @@ export const useStoreNotes = defineStore("storeNotes", {
         return note.id !== idToDelete;
       });
     },
+    updateNote(id, content) {
+      let index = this.notes.findIndex((note) => note.id === id);
+      // console.log(index);
+      this.notes[index].content = content;
+    },
   },
 
   // getters
@@ -45,6 +50,4 @@ export const useStoreNotes = defineStore("storeNotes", {
       };
     },
   },
-
-  
 });
