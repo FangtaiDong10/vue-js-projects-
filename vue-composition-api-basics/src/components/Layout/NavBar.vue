@@ -1,10 +1,11 @@
 <template>
   <nav class="navbar is-success" role="navigation" aria-label="main navigation">
-    <div class="container is-max-desktop px-2" >
+    <div class="container is-max-desktop px-2">
       <!-- brand -->
       <div class="navbar-brand">
         <div class="navbar-item is-size-4 is-family-monospace">
-          NoteBalls
+          <a class="logo" href="/">NoteBalls</a>
+
           <!-- <img
           src="https://bulma.io/images/bulma-logo.png"
           width="112"
@@ -32,7 +33,8 @@
       <div
         id="navbarBasicExample"
         class="navbar-menu"
-        :class="{ 'is-active': showMobileNav }">
+        :class="{ 'is-active': showMobileNav }"
+      >
         <div class="navbar-start">
           <RouterLink to="/" class="navbar-item" active-class="is-active">
             Notes
@@ -80,7 +82,7 @@ const showMobileNav = ref(false);
 </script>
 
 <style>
-@media(max-width: 1024px){
+@media (max-width: 1024px) {
   .navbar-menu {
     position: absolute;
     left: 0;
@@ -88,4 +90,12 @@ const showMobileNav = ref(false);
   }
 }
 
+.logo {
+  text-decoration: none;
+  color: aliceblue;
+}
+
+.logo:hover {
+  color: white;
+}
 </style>

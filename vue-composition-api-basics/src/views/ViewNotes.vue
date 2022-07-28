@@ -2,6 +2,7 @@
   <div class="notes">
     <AddEditNote
       v-model="newNote"
+      placeholder="Add a new note"
       ref="addEditNoteRef">
       <template v-slot:buttons>
         <button
@@ -13,7 +14,7 @@
         </button>
       </template>
     </AddEditNote>
-    
+
     <!-- Note Component -->
     <Note v-for="note in storeNotes.notes" :key="note.id" :note="note" />
   </div>
